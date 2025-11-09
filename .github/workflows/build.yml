@@ -1,0 +1,32 @@
+name: Build Mod JAR
+
+on:
+  push:
+    branches: [ main ]  # Trigger khi push lên branch main
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Chạy trên Linux miễn phí
+
+    steps:
+    - uses: actions/checkout@v2  # Checkout code
+
+    - name: Set up JDK 8
+      uses: actions/setup-java@v2
+      with:
+        java-version: '8'
+        distribution: 'temurin'
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+
+    - name: Build with Gradle
+      run: ./gradlew build  # Build JAR
+
+    - name: Upload JAR Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: ChatGUIOnly-JAR
+        path: build/libs/*.jar  # Upload file JAR
