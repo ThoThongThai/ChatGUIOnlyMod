@@ -1,14 +1,3 @@
-pluginManagement {
-    repositories {
-        maven {
-            name = 'MinecraftForge'
-            url = 'https://maven.minecraftforge.net/'
-        }
-        gradlePluginPortal()
-        mavenCentral()
-    }
-}
-
 plugins {
     id 'java'
     id 'net.minecraftforge.gradle' version '2.3-SNAPSHOT'
