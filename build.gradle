@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'net.minecraftforge.gradle' version '2.3-SNAPSHOT'
+}
+
+group = 'com.chatguionly'
+version = '1.0'
+archivesBaseName = 'ChatGUIOnly'
+
+sourceCompatibility = targetCompatibility = '1.8'  // Java 8 cho 1.12.2
+compileJava {
+    sourceCompatibility = targetCompatibility = '1.8'
+}
+
+minecraft {
+    version = '1.12.2-14.23.5.2854'
+    runDir = 'run'
+    mappings = 'snapshot_20171003'
+}
+
+dependencies {
+    compileOnly 'net.minecraftforge:forge:1.12.2-14.23.5.2854:universal'
+}
+
+processResources {
+    inputs.property 'version', project.version
+    inputs.property 'mcversion', project.minecraft.version
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}

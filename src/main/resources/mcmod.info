@@ -1,0 +1,9 @@
+{
+  "modid": "chatguionly",
+  "name": "ChatGUIOnly",
+  "version": "1.0",
+  "mcversion": "1.12.2",
+  "description": "Invisible world - only chat and GUI visible.",
+  "authorList": ["Thoooo"],
+  "url": "https://example.com"
+}
