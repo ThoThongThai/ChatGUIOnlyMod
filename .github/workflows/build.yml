@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest  # Chạy trên Linux miễn phí
 
     steps:
-    - uses: actions/checkout@v2  # Checkout code
+    - uses: actions/checkout@v4  # Cập nhật checkout lên v4
 
     - name: Set up JDK 8
-      uses: actions/setup-java@v2
+      uses: actions/setup-java@v4  # Cập nhật setup-java lên v4
       with:
         java-version: '8'
         distribution: 'temurin'
@@ -26,7 +26,7 @@ jobs:
       run: ./gradlew build  # Build JAR
 
     - name: Upload JAR Artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4  # Cập nhật lên v4 (không deprecated)
       with:
         name: ChatGUIOnly-JAR
         path: build/libs/*.jar  # Upload file JAR
